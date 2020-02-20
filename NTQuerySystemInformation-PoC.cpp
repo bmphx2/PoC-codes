@@ -48,7 +48,7 @@ PVOID FindBaseAddress(ULONG pid) {
 	for (ULONG i = 0; i <= buffer->HandleCount; i++) {
 		if ((buffer->Handles[i].ProcessId == pid)) { 
 			ProcAddress = buffer->Handles[i].Object;
-			printf("Address: 0x%p, Type of the object: %d, Handle: %x\n", buffer->Handles[i].Object, buffer->Handles[i].ObjectTypeNumber, buffer->Handles[i].Handle);
+			printf("Address: 0x%p, Object Type: %d, Handle: %x\n", buffer->Handles[i].Object, buffer->Handles[i].ObjectTypeNumber, buffer->Handles[i].Handle);
 		}
 
 	}

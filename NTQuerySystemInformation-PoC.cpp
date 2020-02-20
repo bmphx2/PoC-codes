@@ -6,8 +6,6 @@
 #include <stdio.h>
 #define NT_SUCCESS(x) ((x) >= 0)
 
-PVOID ProcAddress;
-
 typedef NTSTATUS(NTAPI* _NtQuerySystemInformation)(
 	ULONG SystemInformationClass,
 	PVOID SystemInformation,

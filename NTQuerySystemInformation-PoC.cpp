@@ -51,7 +51,7 @@ PVOID FindBaseAddress(ULONG pid) {
 		}
 
 	}
-	HeapFree(GetProcessHeap(), 0, buffer);
+	free(buffer);
 	return ProcAddress;
 
 }

@@ -45,7 +45,7 @@ PVOID FindBaseAddress(ULONG pid) {
 		exit(-1);
 	}
 
-	for (ULONG i = 0; i < buffer->HandleCount; i++) {
+	for (ULONG i = 0; i <= buffer->HandleCount; i++) {
 		if ((buffer->Handles[i].ProcessId == pid)) { 
 			ProcAddress = buffer->Handles[i].Object;
 			printf("Address: 0x%p, Type of the object: %d, Handle: %x\n", buffer->Handles[i].Object, buffer->Handles[i].ObjectTypeNumber, buffer->Handles[i].Handle);
@@ -53,17 +53,13 @@ PVOID FindBaseAddress(ULONG pid) {
 
 	}
 	free(buffer);
-	return ProcAddress;
-
 }
 
 void main()
 
 {
 	printf("NTQuerySystemInformation() PoC -- Bruno Oliveira @mphx2\n");
-	PVOID result;
-	result = FindBaseAddress(GetCurrentProcessId());
-	//printf("The kernel address of the current process is 0x%p\n", result);
+	FindBaseAddress(GetCurrentProcessId());
 	getchar();
 
 }
